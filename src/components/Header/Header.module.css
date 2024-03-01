@@ -16,3 +16,18 @@
   color: white;
   text-decoration: none;
 }
+
+.link {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #ccc;
+}
+
+.navItem .activeLink {
+  color: #4caf50;
+}
