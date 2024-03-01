@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import themoviedbApi from '../helpers/themoviedb-api';
-import MoviesList from '../components/MoviesList/MoviesList';
-import Loader from '../components/Loader/Loader';
+import themoviedbApi from '../../helpers/themoviedb-api';
+import MoviesList from '../../components/MoviesList/MoviesList';
+import Loader from '../../components/Loader/Loader';
 import css from './Home.module.css';
 
 const Home = () => {

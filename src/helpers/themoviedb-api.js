@@ -16,22 +16,29 @@ async function fetchTrendingMovies(timeWindow = 'day', language = 'en-US') {
   return data;
 }
 
-// async function requestImages(query, page = 1, perPage = 12) {
-//   const data = await axiosInstance.get('/', {
-//     params: {
-//       key: API_KEY,
-//       q: query,
-//       image_type: 'photo',
-//       orientation: 'horizontal',
-//       safesearch: true,
-//       page,
-//       per_page: perPage,
-//     },
-//   });
+async function searchMovies(
+  query,
+  page = 1,
+  language = 'en-US',
+  primaryReleaseYear = '',
+  region = '',
+  includeAdult = false
+) {
+  const data = await axiosInstance.get('/search/movie', {
+    params: {
+      api_key: API_KEY,
+      query,
+      page,
+      language,
+      primary_release_year: primaryReleaseYear,
+      region,
+      include_adult: includeAdult,
+    },
+  });
 
-//   return data;
-// }
+  return data;
+}
 
-const themoviedbApi = { fetchTrendingMovies };
+const themoviedbApi = { fetchTrendingMovies, searchMovies };
 
 export default themoviedbApi;
