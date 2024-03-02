@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from '../layouts/MainLayout';
 
 const Home = lazy(() => import('../pages/Home/Home'));
@@ -20,6 +20,7 @@ const App = () => {
               <Route path="cast" element={<Cast />} />
               <Route path="reviews" element={<Reviews />} />
             </Route>
+            <Route path="*" element={<Navigate replace to="/" />} />
           </Route>
         </Routes>
       </Suspense>
