@@ -1,0 +1,79 @@
+.detailsContainer {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.imageContainer img {
+  width: 300px;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.movieInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.movieTitle {
+  font-size: 24px;
+  margin: 0;
+  color: #333;
+}
+
+.movieScore {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #666;
+}
+
+.movieOverview,
+.movieGenres {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.additionalInfo {
+  margin-top: 20px;
+}
+
+.additionalInfo h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.additionalLinks {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.additionalLinks li {
+  margin-bottom: 5px;
+}
+
+.additionalLinks a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #007bff;
+}
+
+.additionalLinks a:hover {
+  text-decoration: underline;
+}
+
+.backButton {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.backButton:hover {
+  background-color: #0056b3;
+}
