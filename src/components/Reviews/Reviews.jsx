@@ -31,14 +31,14 @@ const Reviews = () => {
     <div>
       {loading && <Loader size={40} color="#00BFFF" />}
       {error && (
-        <div className={css.Error}>An error occurred: {error.message}</div>
+        <div className={css.error}>An error occurred: {error.message}</div>
       )}
       {reviews.length > 0 ? (
-        <ul>
+        <ul className={css.list}>
           {reviews.map(({ id, author, content }) => (
-            <li key={id}>
-              <h4>{author}</h4>
-              <p>{content}</p>
+            <li key={id} className={css.item}>
+              <h4 className={css.author}>{author}</h4>
+              <p className={css.content}>{content}</p>
             </li>
           ))}
         </ul>
