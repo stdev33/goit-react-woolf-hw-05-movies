@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Outlet, useParams, Link } from 'react-router-dom';
+import {
+  Outlet,
+  useParams,
+  Link,
+  useNavigate,
+  useLocation,
+} from 'react-router-dom';
 import themoviedbApi from '../../helpers/themoviedb-api';
 import Loader from '../../components/Loader/Loader';
 import css from './MovieDetails.module.css';
 
 const MovieDetails = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -27,6 +35,10 @@ const MovieDetails = () => {
     fetchMovie();
   }, [movieId]);
 
+  const handleGoBack = () => {
+    navigate(location.state?.from ?? '/');
+  };
+
   return (
     <div>
       {loading && <Loader size={80} color="#00BFFF" />}
@@ -35,6 +47,9 @@ const MovieDetails = () => {
       )}
       {movie && (
         <>
+          <button className={css.backButton} onClick={handleGoBack}>
+            Back
+          </button>
           <section className={css.detailsContainer}>
             <div className={css.imageContainer}>
               <img
