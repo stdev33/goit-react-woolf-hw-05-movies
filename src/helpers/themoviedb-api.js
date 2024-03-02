@@ -39,6 +39,45 @@ async function searchMovies(
   return data;
 }
 
-const themoviedbApi = { fetchTrendingMovies, searchMovies };
+async function fetchMovieDetails(movieId, language = 'en-US') {
+  const data = await axiosInstance.get(`/movie/${movieId}`, {
+    params: {
+      api_key: API_KEY,
+      language,
+    },
+  });
+
+  return data;
+}
+
+async function fetchMovieCast(movieId) {
+  const data = await axiosInstance.get(`/movie/${movieId}/credits`, {
+    params: {
+      api_key: API_KEY,
+    },
+  });
+
+  return data;
+}
+
+async function fetchMovieReviews(movieId, page = 1, language = 'en-US') {
+  const data = await axiosInstance.get(`/movie/${movieId}/reviews`, {
+    params: {
+      api_key: API_KEY,
+      page,
+      language,
+    },
+  });
+
+  return data;
+}
+
+const themoviedbApi = {
+  fetchTrendingMovies,
+  searchMovies,
+  fetchMovieDetails,
+  fetchMovieCast,
+  fetchMovieReviews,
+};
 
 export default themoviedbApi;
