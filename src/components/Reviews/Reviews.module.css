@@ -1,20 +1,28 @@
 .list {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .item {
   margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eee;
 }
 
 .author {
   font-weight: bold;
-  color: #000;
+  color: #007bff;
+  margin-bottom: 10px;
 }
 
 .content {
   font-size: 14px;
   color: #333;
+  text-align: justify;
 }
 
 .error {

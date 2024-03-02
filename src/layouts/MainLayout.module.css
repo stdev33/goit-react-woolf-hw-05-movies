@@ -1,0 +1,9 @@
+.layoutContainer {
+  margin: 0 auto;
+  padding: 32px;
+  max-width: 1200px;
+}
+
+.contentContainer {
+  margin-top: 20px;
+}
