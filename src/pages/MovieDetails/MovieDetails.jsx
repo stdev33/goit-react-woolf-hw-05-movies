@@ -60,7 +60,7 @@ const MovieDetails = () => {
             <div className={css.movieInfo}>
               <h2 className={css.movieTitle}>{movie.title}</h2>
               <p className={css.movieScore}>
-                User Score: {movie.vote_average * 10}%
+                User Score: {Math.round(movie.vote_average * 10)}%
               </p>
               <h3>Overview</h3>
               <p className={css.movieOverview}>{movie.overview}</p>
