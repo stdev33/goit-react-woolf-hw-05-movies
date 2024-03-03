@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import MoviesList from '../../components/MoviesList/MoviesList';
 import themoviedbApi from '../../helpers/themoviedb-api';
@@ -10,34 +10,31 @@ const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const searchMovies = async query => {
-    setLoading(true);
-
-    try {
-      const response = await themoviedbApi.searchMovies(query);
-      setMovies(response.data.results);
-    } catch (err) {
-      setError(err);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const handleSearch = query => {
-    navigate(`/movies?query=${query}`);
+    setSearchParams({ query });
   };
 
   useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    const query = searchParams.get('query');
+    const searchMovies = async query => {
+      setLoading(true);
 
+      try {
+        const response = await themoviedbApi.searchMovies(query);
+        setMovies(response.data.results);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    const query = searchParams.get('query');
     if (query) {
       searchMovies(query);
     }
-  }, [location.search]);
+  }, [searchParams]);
 
   return (
     <>
